@@ -186,28 +186,28 @@ export const myProjects = [
   },
   {
     id: 6,
-    title: "Professional To-Do List",
+    title: "MoodMap",
     description:
-      "A task management application with user authentication, built using PHP and MySQL.",
+      "A modern, mood-based place discovery application that helps you find the perfect nearby spot based on how you're feeling.",
     subDescription: [
-      "Developed a full-featured task management system using PHP and MySQL.",
-      "Implemented secure user authentication and session management.",
-      "Designed a responsive interface with priority-based task organization.",
-      "Added features for task filtering, sorting, and deadline tracking.",
+      "Integrated OpenStreetMap APIs to enable precise location-based place discovery.",
+      "Implemented real-time filtering based on user-selected moods to surface relevant venues.",
+      "Developed a responsive and intuitive user interface for seamless mood-based exploration.",
+      "Optimized API usage to ensure fast load times and minimal latency for an enhanced user experience.",
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/elearning.jpg",
+    image: "/assets/projects/moodmap.jpg",
     tags: [
       {
         id: 1,
-        name: "HTML5",
-        path: "/assets/logos/html5.svg",
+        name: "React",
+        path: "/assets/logos/react.svg",
       },
       {
         id: 2,
-        name: "CSS3",
-        path: "/assets/logos/css3.svg",
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwind.svg",
       },
       {
         id: 3,
@@ -216,8 +216,8 @@ export const myProjects = [
       },
       {
         id: 4,
-        name: "MySQL",
-        path: "/assets/logos/mysql.svg",
+        name: "OpenStreetMap",
+        path: "/assets/logos/osm.svg",
       },
     ],
   },

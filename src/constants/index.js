@@ -149,28 +149,28 @@ export const myProjects = [
   },
   {
     id: 5,
-    title: "Fitness Buddy App",
+    title: "Secret-Santa",
     description:
-      "A personalized fitness tracking application with cloud storage powered by Java and Firebase.",
+      "A robust Secret Santa application featuring backend logic and Supabase integration for seamless user experience.",
     subDescription: [
-      "Built a fitness tracking app with personalized workout plans using Java.",
-      "Integrated Firebase for real-time cloud storage and user authentication.",
-      "Designed an intuitive mobile-first UI for seamless fitness tracking.",
-      "Implemented progress tracking with visual charts and analytics.",
+      "Engineered a full-stack Secret Santa application with sophisticated backend logic and Supabase integration.",
+      "Implemented secure user authentication and encrypted group management using Supabase.",
+      "Developed core gift-pairing algorithms to ensure randomized and fair matching.",
+      "Designed a responsive user interface with real-time updates for group activities.",
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/wordpress-theme.jpg",
+    image: "/assets/projects/ss.jpg",
     tags: [
       {
         id: 1,
-        name: "Java",
-        path: "/assets/logos/java.svg",
+        name: "React",
+        path: "/assets/logos/react.svg",
       },
       {
         id: 2,
-        name: "Firebase",
-        path: "/assets/logos/firebase.svg",
+        name: "Supabase",
+        path: "/assets/logos/supabase.svg",
       },
       {
         id: 3,
@@ -179,8 +179,8 @@ export const myProjects = [
       },
       {
         id: 4,
-        name: "JavaScript",
-        path: "/assets/logos/javascript.svg",
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
       },
     ],
   },

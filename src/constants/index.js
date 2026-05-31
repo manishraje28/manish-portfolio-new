@@ -148,6 +148,43 @@ export const myProjects = [
     ],
   },
   {
+    id: 6,
+    title: "SkillSnap",
+    description:
+      "An AI-powered career path recommender that analyzes resumes and provides personalized guidance on skills, career opportunities, and learning paths.",
+    subDescription: [
+      "Built a serverless AWS architecture using S3, Textract, DynamoDB, and Lambda for scalable resume processing and recommendations.",
+      "Integrated AI-powered resume analysis to identify skills, experience, and education, generating personalized career insights.",
+      "Implemented secure resume uploads with automated text extraction from PDF and image files using Amazon Textract.",
+      "Developed a responsive React-based interface with recommendation history, CSV export functionality, and seamless user experience.",
+    ],
+    href: "https://skillsnapp.vercel.app/",
+    logo: "",
+    image: "/assets/projects/sssp.png",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        path: "/assets/logos/javascript.svg",
+      },
+      {
+        id: 4,
+        name: "AWS",
+        path: "/assets/logos/ssp.svg",
+      },
+    ],
+  },
+  {
     id: 5,
     title: "Secret-Santa",
     description:

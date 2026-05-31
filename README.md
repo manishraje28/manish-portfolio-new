@@ -2,7 +2,7 @@
 
 A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects — designed to help you stand out and showcase your skills creatively.
 
-<img src="/public/assets/sss.png" alt="Project Logo" width="400">
+<img src="/public/assets/sss.png" alt="Project Logo" width="700">
 
 ---
 

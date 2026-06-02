@@ -148,7 +148,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 6,
+    id: 8,
     title: "SkillSnap",
     description:
       "An AI-powered career path recommender that analyzes resumes and provides personalized guidance on skills, career opportunities, and learning paths.",

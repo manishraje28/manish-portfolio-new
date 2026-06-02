@@ -79,7 +79,7 @@ const DeveloperActivity = () => {
           </div>
 
           {/* Heatmap Area */}
-          <div className="relative w-full overflow-x-auto custom-scrollbar pb-2">
+          <div className="relative w-full overflow-x-auto custom-scrollbar pb-0">
             {loading ? (
               <div className="flex items-center justify-center w-full h-[150px]">
                 <div className="w-8 h-8 rounded-full border-2 border-lavender border-t-transparent animate-spin"></div>
@@ -89,16 +89,16 @@ const DeveloperActivity = () => {
                 Failed to load activity graph.
               </div>
             ) : (
-              <div className="min-w-[850px] flex gap-1 relative">
+              <div className="min-w-max flex justify-center relative mx-auto pt-2">
                 {/* Month labels would typically go here, simplifying for now */}
-                <div className="grid grid-rows-7 gap-[6px] grid-flow-col w-full h-fit">
+                <div className="grid grid-rows-7 gap-2 grid-flow-col w-fit h-fit pb-2">
                   {data?.contributions?.map((day, idx) => (
                     <motion.div
                       key={day.date}
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: idx * 0.001, duration: 0.2 }}
-                      className={`w-[14px] h-[14px] rounded-[3px] transition-transform duration-200 hover:scale-125 hover:z-10 cursor-pointer ${getIntensityColor(
+                      className={`w-4 h-4 rounded-[4px] transition-transform duration-200 hover:scale-125 hover:z-10 cursor-pointer ${getIntensityColor(
                         day.total
                       )}`}
                       onMouseEnter={() => setHoveredCell(day)}
@@ -111,7 +111,7 @@ const DeveloperActivity = () => {
           </div>
 
           {/* Premium Tooltip */}
-          <div className="flex items-center justify-center h-10 mt-2">
+          <div className="flex items-center justify-center h-8 mt-2 mb-2">
             {hoveredCell ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}

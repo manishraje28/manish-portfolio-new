@@ -45,7 +45,7 @@ const DeveloperActivity = () => {
   };
 
   return (
-    <section className="c-space section-spacing" id="activity">
+    <section className="c-space my-20" id="activity">
       <div className="flex flex-col items-center justify-center mb-12 text-center">
         <h2 className="text-heading">Developer Activity</h2>
         <p className="mt-4 subtext max-w-2xl">

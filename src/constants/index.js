@@ -57,8 +57,8 @@ export const myProjects = [
       },
       {
         id: 2,
-        name: "Python",
-        path: "/assets/logos/python.svg",
+        name: "FastAPI",
+        path: "/assets/logos/fastapi.svg",
       },
       {
         id: 3,
@@ -67,8 +67,8 @@ export const myProjects = [
       },
       {
         id: 4,
-        name: "Firebase",
-        path: "/assets/logos/firebase.svg",
+        name: "Google ADK",
+        path: "/assets/logos/gadk.svg",
       },
     ],
   },

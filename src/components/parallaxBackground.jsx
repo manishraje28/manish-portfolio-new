@@ -1,67 +1,40 @@
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { useState, useRef } from "react";
 
 const ParallaxBackground = () => {
-  const { scrollYProgress } = useScroll();
-  const x = useSpring(scrollYProgress, { damping: 50 });
-  const mountain3Y = useTransform(x, [0, 0.5], ["0%", "70%"]);
-  const planetsX = useTransform(x, [0, 0.5], ["0%", "-20%"]);
-  const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
-  const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.log("Playback failed:", e));
+    }
+  };
 
   return (
-    <section className="absolute inset-0 bg-black/40">
-      <div className="relative h-screen overflow-y-hidden">
-        {/* Background Sky */}
-        <div
-          className="absolute inset-0 w-full h-screen -z-50"
-          style={{
-            backgroundImage: "url(/assets/sky.jpg)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-          }}
-        />
-        {/* Mountain Layer 3 */}
-        <motion.div
-          className="absolute inset-0 -z-40"
-          style={{
-            backgroundImage: "url(/assets/mountain-3.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            y: mountain3Y,
-          }}
-        />
-        {/* Planets */}
-        <motion.div
-          className="absolute inset-0 -z-30"
-          style={{
-            backgroundImage: "url(/assets/planets.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            x: planetsX,
-          }}
-        />
-        {/* Mountain Layer 2 */}
-        <motion.div
-          className="absolute inset-0 -z-20"
-          style={{
-            backgroundImage: "url(/assets/mountain-2.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            y: mountain2Y,
-          }}
-        />
-        {/* Mountaine Layer 1 */}
-        <motion.div
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: "url(/assets/mountain-1.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            y: mountain1Y,
-          }}
-        />
+    <>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-full -z-50 overflow-hidden pointer-events-none">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted={isMuted}
+          playsInline
+          className="w-full h-full object-cover object-right md:object-center"
+        >
+          <source src="/manu-vide.mp4" type="video/mp4" />
+        </video>
+        {/* Mobile-only gradient overlay to guarantee text readability when video is cropped */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80 md:hidden mix-blend-multiply" />
       </div>
-    </section>
+
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-1 right-1 md:bottom-5 md:right-5 z-[50] px-4 py-2 md:px-6 md:py-3 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold text-xs md:text-lg hover:bg-white/20 hover:scale-105 transition-all cursor-pointer shadow-[0_8px_32px_rgba(0,0,0,0.8)] flex items-center gap-2"
+      >
+        {isMuted ? "🔇 Unmute Video" : "🔊 Mute Video"}
+      </button>
+    </>
   );
 };
 

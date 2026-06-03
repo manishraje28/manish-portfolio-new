@@ -8,9 +8,9 @@ const HeroText = () => {
     visible: { opacity: 1, x: 0 },
   };
   return (
-    <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
+    <div className="z-10 text-center md:text-left rounded-3xl p-6 md:p-10 backdrop-blur-md bg-black/20 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-500 hover:bg-black/40 hover:border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]">
       {/* Desktop View */}
-      <div className="flex-col hidden md:flex c-space">
+      <div className="flex-col hidden md:flex">
         <motion.h1
           className="text-4xl font-medium"
           variants={variants}

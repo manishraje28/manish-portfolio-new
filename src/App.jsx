@@ -11,17 +11,19 @@ import Footer from './sections/Footer';
 
 const App = () => {
   return (
-    <div className="container mx-auto max-w-7xl">
+    <main className="w-full">
       <Navbar />
       <Hero />
-      <About />
-      <DeveloperActivity />
-      <Projects />
-      <Experiences />
-      <Testimonial />
-      <Contact />
-      <Footer/>
-    </div>
+      <div className="container mx-auto max-w-7xl">
+        <About />
+        <DeveloperActivity />
+        <Projects />
+        <Experiences />
+        <Testimonial />
+        <Contact />
+        <Footer />
+      </div>
+    </main>
   );
 };
 

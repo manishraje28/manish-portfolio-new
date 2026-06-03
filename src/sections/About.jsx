@@ -56,7 +56,7 @@ const About = () => {
             />
             <Card
               style={{ rotate: "20deg", top: "10%", left: "38%" }}
-              text="Web3"
+              text="JAVA"
               containerRef={grid2Container}
             />
             <Card
@@ -66,12 +66,17 @@ const About = () => {
             />
             <Card
               style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/nodejs.svg"
+              image="assets/logos/python.svg"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/mongodb.svg"
+              image="assets/logos/css3.svg"
+              containerRef={grid2Container}
+            />
+            <Card
+              style={{ rotate: "-45deg", top: "5%", left: "10%" }}
+              image="assets/logos/visualstudiocode.svg"
               containerRef={grid2Container}
             />
           </div>

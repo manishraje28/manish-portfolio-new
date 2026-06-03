@@ -46,7 +46,7 @@ export const myProjects = [
       "Developed backend with FastAPI and frontend using React + Tailwind.",
       "Designed accessibility-first AI with dyslexia-safe and screen-reader support.",
     ],
-    href: "https://github.com/manishraje28",
+    href: "https://pragnapath.vercel.app/",
     logo: "",
     image: "/assets/projects/auth-system.jpg",
     tags: [

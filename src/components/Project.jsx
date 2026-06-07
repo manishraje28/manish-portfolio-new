@@ -35,11 +35,22 @@ const Project = ({
           <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide transition-colors duration-300">
             {title}
           </h3>
-          <img 
-            src="assets/arrow-up.svg" 
-            className="w-4 h-4 sm:w-5 sm:h-5 opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1" 
-            alt="arrow"
-          />
+          {href && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="p-1 -ml-1 rounded-md transition-colors hover:bg-white/10 z-10"
+              title="View Live Site"
+            >
+              <img 
+                src="assets/arrow-up.svg" 
+                className="w-4 h-4 sm:w-5 sm:h-5 opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1" 
+                alt="arrow"
+              />
+            </a>
+          )}
         </div>
         
         {/* Description */}

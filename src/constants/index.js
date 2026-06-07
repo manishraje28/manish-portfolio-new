@@ -364,3 +364,24 @@ export const reviews = [
     img: "https://robohash.org/peerdev",
   },
 ];
+
+export const education = [
+  {
+    title: "ICSE Board (10th)",
+    job: "Smt. Sulochanadevi Singhania School, Thane",
+    date: "Completed",
+    contents: ["Score: 93.67%"],
+  },
+  {
+    title: "Diploma in Computer Engineering",
+    job: "V.P.M's Polytechnic, Thane",
+    date: "Completed in 2024",
+    contents: ["Score: 94%"],
+  },
+  {
+    title: "B.E in Computer Engineering",
+    job: "Vivekanand Education Society's Institute of Technology (VESIT), Chembur",
+    date: "2024 – Present",
+    contents: ["Current CGPA: 9.86"],
+  },
+];

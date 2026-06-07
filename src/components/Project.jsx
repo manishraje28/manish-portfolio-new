@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
+import { motion } from "motion/react";
 
 const Project = ({
   title,
@@ -8,33 +9,54 @@ const Project = ({
   href,
   image,
   tags,
-  setPreview,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
   return (
     <>
-      <div
-        className="flex-wrap items-center justify-between py-10 space-y-14 sm:flex sm:space-y-0"
-        onMouseEnter={() => setPreview(image)}
-        onMouseLeave={() => setPreview(null)}
+      <motion.div
+        className="flex flex-col group cursor-pointer w-full"
+        onClick={() => setIsHidden(true)}
       >
-        <div>
-          <p className="text-2xl">{title}</p>
-          <div className="flex gap-5 mt-2 text-sand">
-            {tags.map((tag) => (
-              <span key={tag.id}>{tag.name}</span>
-            ))}
-          </div>
+        {/* Image Container */}
+        <div className="w-full overflow-hidden rounded-2xl mb-6 bg-neutral-900 border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+          {image ? (
+            <img
+              src={image}
+              alt={title}
+              className="w-full aspect-[16/10] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-100"
+            />
+          ) : (
+            <div className="w-full aspect-[16/10] bg-gradient-to-br from-storm to-indigo" />
+          )}
         </div>
-        <button
-          onClick={() => setIsHidden(true)}
-          className="flex items-center gap-1 cursor-pointer hover-animation"
-        >
-          Read More
-          <img src="assets/arrow-right.svg" className="w-5" />
-        </button>
-      </div>
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
+        
+        {/* Title & Arrow */}
+        <div className="flex items-center gap-3 mb-3">
+          <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide transition-colors duration-300">
+            {title}
+          </h3>
+          <img 
+            src="assets/arrow-up.svg" 
+            className="w-4 h-4 sm:w-5 sm:h-5 opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1" 
+            alt="arrow"
+          />
+        </div>
+        
+        {/* Description */}
+        <p className="text-neutral-400 text-sm sm:text-base leading-relaxed line-clamp-2 pr-4">
+          {description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex gap-3 mt-5">
+          {tags.map((tag) => (
+            <div key={tag.id} className="p-2 bg-white/5 rounded-full border border-white/10" title={tag.name}>
+              <img src={tag.path} alt={tag.name} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
       {isHidden && (
         <ProjectDetails
           title={title}

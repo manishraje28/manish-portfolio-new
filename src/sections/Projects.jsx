@@ -2,6 +2,7 @@ import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion } from "motion/react";
 
+//project section with fade-in and staggered animations for each project card, plus a decorative background glow for visual interest
 const Projects = () => {
   return (
     <section id="work" className="relative c-space section-spacing">
@@ -14,6 +15,8 @@ const Projects = () => {
       >
         <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-300 to-neutral-500 drop-shadow-sm">
           Projects
+
+        
         </h2>
         <div className="h-1 w-20 bg-gradient-to-r from-aqua to-lavender mt-4 rounded-full" />
         <p className="text-neutral-400 mt-6 text-base md:text-lg text-center sm:text-left max-w-2xl leading-relaxed">

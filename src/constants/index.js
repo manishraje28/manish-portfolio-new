@@ -63,6 +63,8 @@ export const myProjects = [
       {
         id: 3,
         name: "TailwindCSS",
+
+        
         path: "/assets/logos/tailwindcss.svg",
       },
       {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 const resumeUrl =
   import.meta.env.VITE_RESUME_URL ||
-  "https://drive.google.com/file/d/1c2GOj6viOxCV4Fe-UZCSs98UUfo9qmer/view?usp=sharing";
+  "https://drive.google.com/file/d/1WKpSpSsp6uYjLPZdU2KOepyFvnKYbvnm/view?usp=sharing";
 
 function Navigation() {
   return (

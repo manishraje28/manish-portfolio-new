@@ -26,6 +26,15 @@
         rotate(calc((var(--angle) * -1deg) - 360deg));
     }
   }
+  --animate-spin-slow: spin-slow 3s linear infinite;
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
   --animate-marquee: marquee 50s linear infinite;
   --animate-marquee-vertical: marquee-vertical 50s linear infinite;
 

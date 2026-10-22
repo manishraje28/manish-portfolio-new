@@ -31,7 +31,7 @@ const Manifesto = () => {
 
   return (
     <section ref={root} className="relative flex items-center min-h-screen c-space overflow-hidden">
-      <div className="mf-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] rounded-full bg-royal/30 blur-[120px] opacity-30 pointer-events-none" />
+      <div className="mf-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] rounded-full bg-[radial-gradient(circle,rgba(92,51,204,0.35),transparent_65%)] opacity-40 pointer-events-none" />
       <p className="relative max-w-5xl mx-auto text-3xl font-bold leading-tight md:text-6xl">
         {TEXT.split(" ").map((w, i) => (
           <span

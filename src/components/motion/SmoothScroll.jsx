@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Lenis smooth scrolling, driven by the GSAP ticker so ScrollTrigger stays in sync
 const SmoothScroll = () => {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (time) => lenis.raf(time * 1000);

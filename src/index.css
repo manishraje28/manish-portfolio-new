@@ -89,7 +89,7 @@ body {
 }
 
 .subtext {
-  @apply text-neutral-400 text-sm md:text-base text-pretty;
+  @apply text-neutral-300 text-sm md:text-base text-pretty;
 }
 
 /* Navigation */
@@ -202,4 +202,16 @@ html.lenis body {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+/* Static ambient background: plain gradients, no canvas or blur filters */
+.ambient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 85% 8%, rgba(92, 51, 204, 0.14), transparent 70%),
+    radial-gradient(50rem 35rem at 10% 35%, rgba(51, 194, 204, 0.08), transparent 70%),
+    radial-gradient(55rem 40rem at 90% 65%, rgba(202, 47, 140, 0.08), transparent 70%),
+    radial-gradient(45rem 30rem at 15% 92%, rgba(122, 87, 219, 0.1), transparent 70%);
 }

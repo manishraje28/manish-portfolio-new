@@ -20,6 +20,8 @@ const ParallaxBackground = () => {
           loop
           muted={isMuted}
           playsInline
+          preload="auto"
+          poster="/assets/hero-poster.jpg"
           className="w-full h-full object-cover object-right md:object-center"
         >
           <source src="/manu-vide.mp4" type="video/mp4" />

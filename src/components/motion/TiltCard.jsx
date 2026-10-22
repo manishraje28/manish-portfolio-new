@@ -24,7 +24,7 @@ const TiltCard = ({ children, className = "" }) => {
       onPointerMove={onMove}
       onPointerLeave={reset}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className={`relative h-full rounded-3xl p-4 bg-white/[0.03] border border-white/10 backdrop-blur-sm ${className}`}
+      className={`relative h-full rounded-3xl p-4 bg-white/[0.03] border border-white/10 ${className}`}
       data-cursor
     >
       <motion.div style={{ background: glow }} className="absolute inset-0 rounded-3xl pointer-events-none" />

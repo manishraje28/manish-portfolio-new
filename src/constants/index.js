@@ -162,7 +162,7 @@ export const myProjects = [
     ],
     href: "https://skillsnapp.vercel.app/",
     logo: "",
-    image: "/assets/projects/sssp.png",
+    image: "/assets/projects/sssp.webp",
     tags: [
       {
         id: 1,

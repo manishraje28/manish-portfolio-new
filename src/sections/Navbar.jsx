@@ -68,15 +68,16 @@ const Navbar = () => {
           <nav className="hidden sm:flex">
             <Navigation />
           </nav>
-          <Button
-            href={resumeUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden sm:inline-flex"
-            icon={<ResumeIcon />}
-          >
-            View Resume
-          </Button>
+          <div className="hidden sm:block">
+            <Button
+              href={resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              icon={<ResumeIcon />}
+            >
+              View Resume
+            </Button>
+          </div>
         </div>
       </div>
       {isOpen && (

@@ -1,6 +1,7 @@
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion } from "motion/react";
+import TiltCard from "../components/motion/TiltCard";
 
 //project section with fade-in and staggered animations for each project card, plus a decorative background glow for visual interest
 const Projects = () => {
@@ -29,19 +30,22 @@ const Projects = () => {
         {myProjects.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 80, rotateX: 25, scale: 0.92 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: (index % 3) * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            style={{ transformPerspective: 1200 }}
             viewport={{ once: true, margin: "-100px" }}
             className="h-full"
           >
-            <Project {...project} />
+            <TiltCard>
+              <Project {...project} />
+            </TiltCard>
           </motion.div>
         ))}
       </div>
 
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-royal/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(92,51,204,0.12),transparent_65%)] rounded-full pointer-events-none -z-10" />
     </section>
   );
 };

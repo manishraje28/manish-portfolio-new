@@ -37,19 +37,19 @@ export const Timeline = ({ data, title = "My Work Experience" }) => {
               </div>
               <div className="flex-col hidden gap-1 md:flex md:pl-20 text-neutral-300 w-full pr-4">
                 <h3 className="text-xl md:text-2xl font-bold">{item.date}</h3>
-                <h3 className="text-lg md:text-xl font-semibold text-neutral-400 mt-1">{item.title}</h3>
-                <h3 className="text-base md:text-lg font-medium text-neutral-500">{item.job}</h3>
+                <h3 className="text-lg md:text-xl font-semibold text-neutral-200 mt-1">{item.title}</h3>
+                <h3 className="text-base md:text-lg font-medium text-neutral-400">{item.job}</h3>
               </div>
             </div>
 
             <div className="relative w-full pl-20 pr-4 md:pl-4">
               <div className="block mb-6 text-left text-neutral-300 md:hidden ">
                 <h3 className="text-xl font-bold">{item.date}</h3>
-                <h3 className="text-lg font-semibold text-neutral-400 mt-1">{item.title}</h3>
-                <h3 className="text-base font-medium text-neutral-500">{item.job}</h3>
+                <h3 className="text-lg font-semibold text-neutral-200 mt-1">{item.title}</h3>
+                <h3 className="text-base font-medium text-neutral-400">{item.job}</h3>
               </div>
               {item.contents.map((content, index) => (
-                <p className="mb-3 font-normal text-neutral-400" key={index}>
+                <p className="mb-3 font-normal text-neutral-300" key={index}>
                   {content}
                 </p>
               ))}

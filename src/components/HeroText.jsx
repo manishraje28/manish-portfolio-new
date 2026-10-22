@@ -8,7 +8,7 @@ const HeroText = () => {
     visible: { opacity: 1, x: 0 },
   };
   return (
-    <div className="z-10 text-center md:text-left rounded-3xl p-6 md:p-10 backdrop-blur-md bg-black/20 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-500 hover:bg-black/40 hover:border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]">
+    <div className="z-10 max-w-full text-center md:text-left rounded-3xl p-5 md:p-10 backdrop-blur-md bg-black/20 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-500 hover:bg-black/40 hover:border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]">
       {/* Desktop View */}
       <div className="flex-col hidden md:flex">
         <motion.h1
@@ -55,7 +55,7 @@ const HeroText = () => {
       {/* Mobile View */}
       <div className="flex- flex-col space-y-6 md:hidden">
         <motion.p
-          className="text-4xl font-medium"
+          className="text-3xl font-medium"
           variants={variants}
           initial="hidden"
           animate="visible"
@@ -65,7 +65,7 @@ const HeroText = () => {
         </motion.p>
         <div>
           <motion.p
-            className="text-5xl font-black text-neutral-300"
+            className="text-4xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
             animate="visible"
@@ -81,11 +81,11 @@ const HeroText = () => {
           >
             <FlipWords
               words={words}
-              className="font-bold text-white text-7xl"
+              className="font-bold text-white text-[2.75rem] leading-tight"
             />
           </motion.div>
           <motion.p
-            className="text-4xl font-black text-neutral300"
+            className="text-3xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
             animate="visible"

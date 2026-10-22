@@ -2,7 +2,7 @@
 
 Personal portfolio of **Manish Bhaskar Raje**, a Computer Engineering student at VESIT (CGPA 9.86) working on full-stack web development (MERN), AI/ML and agentic AI systems.
 
-<img src="/public/assets/sss.png" alt="Portfolio preview" width="700">
+<img src="/public/assets/preview.png" alt="Portfolio preview" width="700">
 
 ---
 

@@ -149,3 +149,57 @@ body {
 .field-input-focus {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
 }
+
+/* Motion layer */
+.custom-cursor,
+.custom-cursor * {
+  cursor: none !important;
+}
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+  border-radius: 9999px;
+  translate: -50% -50%;
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+}
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  mix-blend-mode: difference;
+}
+.text-gradient {
+  background: linear-gradient(90deg, #33c2cc, #7a57db, #ca2f8c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
+}
+.text-heading {
+  perspective: 600px;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vm-row,
+  .mf-word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

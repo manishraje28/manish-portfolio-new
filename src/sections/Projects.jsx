@@ -1,6 +1,7 @@
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion } from "motion/react";
+import TiltCard from "../components/motion/TiltCard";
 
 //project section with fade-in and staggered animations for each project card, plus a decorative background glow for visual interest
 const Projects = () => {
@@ -29,13 +30,16 @@ const Projects = () => {
         {myProjects.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 80, rotateX: 25, scale: 0.92 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: (index % 3) * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            style={{ transformPerspective: 1200 }}
             viewport={{ once: true, margin: "-100px" }}
             className="h-full"
           >
-            <Project {...project} />
+            <TiltCard>
+              <Project {...project} />
+            </TiltCard>
           </motion.div>
         ))}
       </div>

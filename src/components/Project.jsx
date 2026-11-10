@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import ProjectDetails from "./ProjectDetails";
 import { motion } from "motion/react";
 
@@ -68,7 +69,8 @@ const Project = ({
         </div>
       </motion.div>
 
-      {isHidden && (
+      {/* Portalled to body: a fixed overlay inside a 3D-transformed card would be positioned against the card */}
+      {isHidden && createPortal(
         <ProjectDetails
           title={title}
           description={description}
@@ -77,7 +79,8 @@ const Project = ({
           tags={tags}
           href={href}
           closeModal={() => setIsHidden(false)}
-        />
+        />,
+        document.body
       )}
     </>
   );

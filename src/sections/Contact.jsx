@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
+import { useInView } from "motion/react";
 import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
-import { Particles } from "../components/Particles";
+// three.js only downloads when the visitor gets close to this section
+const Orb3D = lazy(() => import("../components/motion/Orb3D"));
 const Contact = () => {
+  const orbRef = useRef(null);
+  const orbNear = useInView(orbRef, { margin: "600px", once: true });
+  const orbVisible = useInView(orbRef);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -51,13 +56,13 @@ const Contact = () => {
   };
   return (
     <section id="contact" className="relative flex items-center c-space section-spacing">
-      <Particles
-        className="absolute inset-0 -z-50"
-        quantity={100}
-        ease={80}
-        color={"#ffffff"}
-        refresh
-      />
+      <div ref={orbRef} className="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
+        {orbNear && (
+          <Suspense fallback={null}>
+            <Orb3D active={orbVisible} />
+          </Suspense>
+        )}
+      </div>
       {showAlert && <Alert type={alertType} text={alertMessage} />}
       <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
         <div className="flex flex-col items-start w-full gap-5 mb-10">

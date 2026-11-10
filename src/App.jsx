@@ -15,6 +15,7 @@ import ScrollProgress from "./components/motion/ScrollProgress";
 import ScrollEffects from "./components/motion/ScrollEffects";
 import VelocityMarquee from "./components/motion/VelocityMarquee";
 import Manifesto from "./components/motion/Manifesto";
+import TechRing from "./components/motion/TechRing";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <div className="container mx-auto max-w-7xl">
           <About />
           <DeveloperActivity />
+          <TechRing />
           <Projects />
           <Education />
           <Experiences />

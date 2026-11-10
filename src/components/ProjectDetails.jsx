@@ -12,6 +12,7 @@ const ProjectDetails = ({
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center w-full h-full p-4 sm:p-6 backdrop-blur-md bg-black/60"
       onClick={closeModal}
+      data-lenis-prevent
     >
       <motion.div
         className="relative w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl rounded-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden"

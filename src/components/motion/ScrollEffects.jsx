@@ -74,12 +74,28 @@ const ScrollEffects = () => {
         scrollTrigger: { trigger: "#about .grid", start: "top 85%" },
       });
 
-      // Timeline entries slide in from the side
+      // Activity card tips up from flat
+      gsap.from("#activity > div:last-child", {
+        rotateX: 45,
+        y: 80,
+        scale: 0.9,
+        opacity: 0,
+        transformPerspective: 1000,
+        transformOrigin: "center top",
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: { trigger: "#activity", start: "top 70%" },
+      });
+
+      // Timeline entries swing in from the side
       gsap.utils.toArray(".section-spacing .relative.pb-0 > div").forEach((el) => {
         gsap.from(el, {
           x: -80,
+          rotateY: 40,
+          transformPerspective: 900,
+          transformOrigin: "left center",
           opacity: 0,
-          duration: 1,
+          duration: 1.1,
           ease: "power3.out",
           scrollTrigger: { trigger: el, start: "top 85%" },
         });
@@ -106,6 +122,44 @@ const ScrollEffects = () => {
         });
       });
     });
+    // Hero card in 3D: follows the mouse on desktop, sways gently on touch screens
+    const card = document.querySelector("#home .hero-card");
+    const home = document.getElementById("home");
+    let cleanupTilt = () => {};
+    if (card && home && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.set(card, { transformPerspective: 900 });
+      if (window.matchMedia("(pointer: fine)").matches) {
+        const rx = gsap.quickTo(card, "rotationX", { duration: 0.6, ease: "power3" });
+        const ry = gsap.quickTo(card, "rotationY", { duration: 0.6, ease: "power3" });
+        const move = (e) => {
+          ry((e.clientX / window.innerWidth - 0.5) * 18);
+          rx((e.clientY / window.innerHeight - 0.5) * -14);
+        };
+        const leave = () => { rx(0); ry(0); };
+        home.addEventListener("pointermove", move);
+        home.addEventListener("pointerleave", leave);
+        cleanupTilt = () => {
+          home.removeEventListener("pointermove", move);
+          home.removeEventListener("pointerleave", leave);
+        };
+      } else {
+        const sway = gsap.fromTo(
+          card,
+          { rotationY: -7, rotationX: 3 },
+          {
+            rotationY: 7,
+            rotationX: -3,
+            duration: 3.5,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            scrollTrigger: { trigger: home, toggleActions: "play pause resume pause" },
+          }
+        );
+        cleanupTilt = () => { sway.scrollTrigger?.kill(); sway.kill(); };
+      }
+    }
+
     // Layout shifts after images/fonts load
     const refresh = () => ScrollTrigger.refresh();
     const raf = requestAnimationFrame(refresh);
@@ -115,6 +169,7 @@ const ScrollEffects = () => {
       cancelAnimationFrame(raf);
       clearTimeout(late);
       window.removeEventListener("load", refresh);
+      cleanupTilt();
       ctx.revert();
     };
   }, []);

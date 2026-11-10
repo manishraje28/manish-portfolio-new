@@ -35,7 +35,8 @@ export default function Testimonial() {
   return (
     <div className="items-start mt-25 md:mt-35 c-space">
       <h2 className="text-heading">What People Say</h2>
-      <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden [perspective:900px]">
+        <div className="wall3d w-full">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
@@ -46,6 +47,7 @@ export default function Testimonial() {
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
+        </div>
         <div className="absolute inset-y-0 left-0 w-1/4 pointer-events-none bg-gradient-to-r from-primary"></div>
         <div className="absolute inset-y-0 right-0 w-1/4 pointer-events-none bg-gradient-to-l from-primary"></div>
       </div>

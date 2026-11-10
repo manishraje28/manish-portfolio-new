@@ -26,6 +26,16 @@ const VelocityMarquee = () => {
           }
         );
       });
+      // The whole plane tips over as it passes through the viewport
+      gsap.fromTo(
+        ".vm-plane",
+        { rotateX: 32 },
+        {
+          rotateX: -24,
+          ease: "none",
+          scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: 0.6 },
+        }
+      );
       const skew = gsap.quickTo(rows, "skewX", { duration: 0.4, ease: "power3" });
       ScrollTrigger.create({
         trigger: root.current,
@@ -40,7 +50,8 @@ const VelocityMarquee = () => {
   }, []);
 
   return (
-    <section ref={root} className="relative py-16 md:py-28 overflow-hidden select-none" aria-hidden="true">
+    <section ref={root} className="relative py-16 md:py-28 overflow-hidden select-none [perspective:800px]" aria-hidden="true">
+      <div className="vm-plane">
       {ROWS.map((text, i) => (
         <div
           key={i}
@@ -51,6 +62,7 @@ const VelocityMarquee = () => {
           {text.repeat(4)}
         </div>
       ))}
+      </div>
     </section>
   );
 };

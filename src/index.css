@@ -215,3 +215,86 @@ html.lenis body {
     radial-gradient(55rem 40rem at 90% 65%, rgba(202, 47, 140, 0.08), transparent 70%),
     radial-gradient(45rem 30rem at 15% 92%, rgba(122, 87, 219, 0.1), transparent 70%);
 }
+
+/* 3D layer: CSS transforms only */
+.vm-plane {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.wall3d {
+  transform: rotateX(22deg) rotateY(-10deg) rotateZ(3deg) scale(1.05);
+  transform-style: preserve-3d;
+}
+.ring3d-scene {
+  --r: clamp(105px, 31vw, 300px);
+  --tile: clamp(46px, 11vw, 72px);
+  position: relative;
+  height: clamp(320px, 85vw, 560px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1100px;
+}
+.ring3d-atom,
+.ring3d-tilt,
+.ring3d-spin {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.ring3d-outer {
+  transform: rotateZ(14deg) rotateX(-8deg);
+}
+.ring3d-inner {
+  --r: clamp(60px, 18vw, 170px);
+  transform: rotateZ(-38deg) rotateX(18deg);
+}
+.ring3d-spin {
+  animation: ring-spin 30s linear infinite;
+}
+.ring3d-inner .ring3d-spin {
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+.ring3d-scene[data-paused="true"] .ring3d-spin {
+  animation-play-state: paused;
+}
+.ring3d-item {
+  position: absolute;
+  width: var(--tile);
+  height: var(--tile);
+  left: calc(var(--tile) / -2);
+  top: calc(var(--tile) / -2);
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: #0d1030;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 24px rgba(122, 87, 219, 0.25);
+  transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--r));
+}
+.ring3d-item img {
+  width: 58%;
+  height: 58%;
+  object-fit: contain;
+}
+.ring3d-core {
+  position: absolute;
+  width: clamp(56px, 13vw, 110px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #b9a5ff, #5c33cc 45%, #1a0f4d 80%);
+  box-shadow: 0 0 60px 10px rgba(122, 87, 219, 0.45);
+}
+@keyframes ring-spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring3d-spin {
+    animation: none;
+  }
+}

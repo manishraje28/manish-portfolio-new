@@ -1,5 +1,7 @@
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "motion/react";
+import { motion, useMotionValue, useScroll, useSpring, useTransform, useMotionTemplate } from "motion/react";
+
+const isTouch = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
 
 // 3D tilt toward the pointer with a moving spotlight glow
 const TiltCard = ({ children, className = "" }) => {
@@ -8,6 +10,9 @@ const TiltCard = ({ children, className = "" }) => {
   const my = useMotionValue(0.5);
   const rotateX = useSpring(useTransform(my, [0, 1], [10, -10]), { stiffness: 200, damping: 20 });
   const rotateY = useSpring(useTransform(mx, [0, 1], [-10, 10]), { stiffness: 200, damping: 20 });
+  // No mouse on phones, so the card tilts with its position in the viewport instead
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const scrollTilt = useTransform(scrollYProgress, [0, 0.5, 1], [14, 0, -14]);
   const glow = useMotionTemplate`radial-gradient(500px circle at ${useTransform(mx, (v) => v * 100)}% ${useTransform(my, (v) => v * 100)}%, rgba(122,87,219,0.25), transparent 45%)`;
 
   const onMove = (e) => {
@@ -23,7 +28,7 @@ const TiltCard = ({ children, className = "" }) => {
       ref={ref}
       onPointerMove={onMove}
       onPointerLeave={reset}
-      style={{ rotateX, rotateY, transformPerspective: 1000 }}
+      style={{ rotateX: isTouch ? scrollTilt : rotateX, rotateY, transformPerspective: 1000 }}
       className={`relative h-full rounded-3xl p-4 bg-white/[0.03] border border-white/10 ${className}`}
       data-cursor
     >
